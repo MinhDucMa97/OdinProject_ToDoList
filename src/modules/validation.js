@@ -4,6 +4,10 @@ export function stringInputValidation(stringToValidate) {
 	);
 }
 
+export function numberInputValidation(numToValidate) {
+	return typeof numToValidate === "number";
+}
+
 function isValidDay(dayToValidate) {
 	const dayInt = parseInt(dayToValidate, 10);
 	return 1 < dayInt < 31;
@@ -23,12 +27,12 @@ export function dateValidation(dateToValidate) {
 	const dateObj = new Date(dateToValidate);
 	if (
 		isValidDay(dateObj.getDay()) &&
-		isValidMonth(dateObj.getMonth()) &&
+		isValidMonth(dateObj.getMonth() + 1) &&
 		isValidYear(dateObj.getFullYear())
 	) {
-		return True;
+		return true;
 	} else {
 		console.error("Day, month, and year only accept valid value");
-		return False;
+		return false;
 	}
 }
