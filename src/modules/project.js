@@ -1,29 +1,40 @@
 import { stringInputValidation, numberInputValidation } from "./validation";
 
 export default class project {
-	constructor(title, projectIndex) {
-		this.title = title;
-		this.projectIndex = projectIndex;
-		this.taskArray = [];
-	}
+  constructor(title, projectIndex) {
+    this.title = title;
+    this.projectIndex = projectIndex;
+    this.taskArray = [];
+  }
 
-	set title(newTitle) {
-		if (stringInputValidation(newTitle)) {
-			this._title = newTitle;
-		}
-	}
+  set title(newTitle) {
+    if (stringInputValidation(newTitle)) {
+      this._title = newTitle;
+    }
+  }
 
-	set projectIndex(newProjectIndex) {
-		if (numberInputValidation(newProjectIndex)) {
-			this._projectIndex = newProjectIndex;
-		}
-	}
+  set projectIndex(newProjectIndex) {
+    if (numberInputValidation(newProjectIndex)) {
+      this._projectIndex = newProjectIndex;
+    }
+  }
 
-	get title() {
-		return this._title;
-	}
+  get title() {
+    return this._title;
+  }
 
-	get projectIndex() {
-		return this._projectIndex;
-	}
+  get projectIndex() {
+    return this._projectIndex;
+  }
+
+  addTask(task) {
+    this._taskArray.push(task);
+  }
+
+  removeTask(taskTitleToRemove) {
+    for (let task of this._taskArray) {
+      if (task.title === taskTitleToRemove) {
+      }
+    }
+  }
 }
